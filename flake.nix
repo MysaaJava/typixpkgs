@@ -33,7 +33,6 @@
           mkdir -p "$out"
           tar -xzf "${tarball}" -C "$out"
         '';
-      fetchTypstPackage = import fetchTypstPackage.nix;
 
       pkgsArgs = {
         inherit lib fetchTypstUniverse;
