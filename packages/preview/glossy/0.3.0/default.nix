@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "glossy";
+  version = "0.3.0";
+  src = fetchTypstUniverse {
+    name = "glossy";
+    version = "0.3.0";
+    hash = "sha256-YXXupJjSIiswZuqWDJRN3kDplWtpXIdVbmo7Kyd3Jd8=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

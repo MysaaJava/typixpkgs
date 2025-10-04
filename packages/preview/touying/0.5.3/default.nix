@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "touying";
+  version = "0.5.3";
+  src = fetchTypstUniverse {
+    name = "touying";
+    version = "0.5.3";
+    hash = "sha256-T5RsYTxtmptxYFyi3Xn2ueMYUzUQPXq3ndwBHEnwnwo=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

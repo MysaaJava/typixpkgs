@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "tufte-memo";
+  version = "0.1.2";
+  src = fetchTypstUniverse {
+    name = "tufte-memo";
+    version = "0.1.2";
+    hash = "sha256-bhsa1QxcYSKCu4cCkKK58SBVbL9cZZ5wdm4amWSqC+0=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

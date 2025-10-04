@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "elsearticle";
+  version = "0.2.1";
+  src = fetchTypstUniverse {
+    name = "elsearticle";
+    version = "0.2.1";
+    hash = "sha256-DtNNAMj2YStnJxoUmUFSJ4lRR8hmxkyVDs0lciy0KUc=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

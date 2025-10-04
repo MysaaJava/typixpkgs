@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "mephistypsteles";
+  version = "0.1.0";
+  src = fetchTypstUniverse {
+    name = "mephistypsteles";
+    version = "0.1.0";
+    hash = "sha256-P2ARTJvB1/SaWyLl5pKxEevyK+d167zUaC1+D0ZPjDs=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "finely-crafted-cv";
+  version = "0.3.0";
+  src = fetchTypstUniverse {
+    name = "finely-crafted-cv";
+    version = "0.3.0";
+    hash = "sha256-MhY6rCQCuYh0bymiy0RC/c0ACzIzkDZTiv3VMyqCQoI=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

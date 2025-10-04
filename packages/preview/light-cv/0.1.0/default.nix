@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "light-cv";
+  version = "0.1.0";
+  src = fetchTypstUniverse {
+    name = "light-cv";
+    version = "0.1.0";
+    hash = "sha256-4Sf1Swy6M5x2FGoLpuFg1eWg5XCICTo+91jLvyUDVRk=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

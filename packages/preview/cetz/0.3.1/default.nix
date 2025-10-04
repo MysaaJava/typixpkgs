@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "cetz";
+  version = "0.3.1";
+  src = fetchTypstUniverse {
+    name = "cetz";
+    version = "0.3.1";
+    hash = "sha256-xCY+RLTciuq0LNcvIMoO3Lqm61YaziLgWGvL6uMZD58=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

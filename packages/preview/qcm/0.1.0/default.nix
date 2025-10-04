@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "qcm";
+  version = "0.1.0";
+  src = fetchTypstUniverse {
+    name = "qcm";
+    version = "0.1.0";
+    hash = "sha256-VsjV9su91+6A52Rzxw5WG727qxzPe4gFhpiyP5JL+Fc=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

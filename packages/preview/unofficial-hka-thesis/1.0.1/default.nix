@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "unofficial-hka-thesis";
+  version = "1.0.1";
+  src = fetchTypstUniverse {
+    name = "unofficial-hka-thesis";
+    version = "1.0.1";
+    hash = "sha256-EPYyP8vRVVtz9v2n2TZBN5pu17OnhMggWQ/6crjM56Q=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

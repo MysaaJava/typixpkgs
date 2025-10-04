@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "brilliant-cv";
+  version = "2.0.4";
+  src = fetchTypstUniverse {
+    name = "brilliant-cv";
+    version = "2.0.4";
+    hash = "sha256-eT5Ds5hmnSjBaV61+DtSpU3ebuj6yp0tjzCjb4r8aiM=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

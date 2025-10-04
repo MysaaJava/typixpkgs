@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "zebraw";
+  version = "0.1.0";
+  src = fetchTypstUniverse {
+    name = "zebraw";
+    version = "0.1.0";
+    hash = "sha256-EgK/xd0yNl/lIo9LHuy/2VzSrdNTfeSaK88dDsrRIiU=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "mitex";
+  version = "0.2.4";
+  src = fetchTypstUniverse {
+    name = "mitex";
+    version = "0.2.4";
+    hash = "sha256-q7VhCUaxsiS60K/bNp2beGOcJpPMY2iio+E8D+VOWus=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

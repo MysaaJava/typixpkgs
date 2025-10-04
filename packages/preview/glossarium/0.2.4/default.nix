@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "glossarium";
+  version = "0.2.4";
+  src = fetchTypstUniverse {
+    name = "glossarium";
+    version = "0.2.4";
+    hash = "sha256-vYwUCzqoUw25bVw9Op6TG7+n1I2V0oyReef+/CYlZ24=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

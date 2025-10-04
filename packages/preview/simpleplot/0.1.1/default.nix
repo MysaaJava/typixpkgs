@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "simpleplot";
+  version = "0.1.1";
+  src = fetchTypstUniverse {
+    name = "simpleplot";
+    version = "0.1.1";
+    hash = "sha256-WxBbrL2srinb7K3hnGaw9h1IBJItRj3dw6chuimS5jY=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

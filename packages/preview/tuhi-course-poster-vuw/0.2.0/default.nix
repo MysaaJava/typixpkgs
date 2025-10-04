@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "tuhi-course-poster-vuw";
+  version = "0.2.0";
+  src = fetchTypstUniverse {
+    name = "tuhi-course-poster-vuw";
+    version = "0.2.0";
+    hash = "sha256-71tFEyfGbyxY3/aC3ynw+vWc2GQ8hUTWETwU84Uryic=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}

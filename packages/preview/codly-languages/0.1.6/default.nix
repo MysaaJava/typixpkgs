@@ -1,0 +1,16 @@
+{
+  fetchTypstUniverse,
+  lib,
+  ...
+}:
+{
+  name = "codly-languages";
+  version = "0.1.6";
+  src = fetchTypstUniverse {
+    name = "codly-languages";
+    version = "0.1.6";
+    hash = "sha256-xm4uCTTnUS7/tbqTKoEdJY3ZyTkPXE6ORAKli7yh2dU=";
+  };
+  depedencies = [];
+  infos = (lib.trivial.importTOML ./typst.toml).package;
+}
