@@ -16,7 +16,23 @@
       ]);
 
 
-      fetchTypstUniverse = args: abort ''NotImplemented: fetchTypstUniverse'';
+      fetchTypstUniverseTarball = args:
+        (import ./fetchTypstPackage.nix) (
+          args
+          // {fetchurl = pkgs.fetchurl;}
+        );
+      fetchTypstUniverse = {
+        namespace ? "preview",
+        name,
+        version,
+        ...
+      } @ args: let
+        tarball = fetchTypstUniverseTarball args;
+      in
+        pkgs.runCommand "fetch-typst-package-${namespace}-${name}-${version}" {} ''
+          mkdir -p "$out"
+          tar -xzf "${tarball}" -C "$out"
+        '';
       fetchTypstPackage = import fetchTypstPackage.nix;
 
       pkgsArgs = {

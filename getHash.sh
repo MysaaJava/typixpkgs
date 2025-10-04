@@ -1,5 +1,6 @@
 #!/bin/bash
 
+TEMPLATEFILE="$PWD/typstUniverseTemplate.nix"
 PREVIEWDIR="$PWD/packages/preview/"
 
 function getHashFromUniverse() {
@@ -30,10 +31,10 @@ function makeFetchFile() {
 
   dest="$PREVIEWDIR/$name/$version/default.nix"
 
-  cp "typstUniverseTemplate.nix" "$dest"
-  sed -i "s/##NAME##/$name/" $dest
-  sed -i "s/##VERSION##/$version/" $dest
-  sed -i "s/##HASH##/$hash/" $dest
+  cp "$TEMPLATEFILE" "$dest"
+  sed -i "s#@@NAME@@#$name#" $dest
+  sed -i "s#@@VERSION@@#$version#" $dest
+  sed -i "s#@@HASH@@#$hash#" $dest
 }
 
 cd "$PREVIEWDIR"

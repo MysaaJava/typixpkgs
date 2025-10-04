@@ -4,12 +4,12 @@
   ...
 }:
 {
-  name = "##NAME##";
-  version = "##VERSION##";
+  name = "@@NAME@@";
+  version = "@@VERSION@@";
   src = fetchTypstUniverse {
-    name = "##NAME##";
-    version = "##VERSION##";
-    hash = "##HASH##";
+    name = "@@NAME@@";
+    version = "@@VERSION@@";
+    hash = "@@HASH@@";
   };
   depedencies = [];
   infos = (lib.trivial.importTOML ./typst.toml).package;
