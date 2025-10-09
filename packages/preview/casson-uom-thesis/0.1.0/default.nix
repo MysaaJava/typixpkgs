@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "casson-uom-thesis";
   version = "0.1.0";

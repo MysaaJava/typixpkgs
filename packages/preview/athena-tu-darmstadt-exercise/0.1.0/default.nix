@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "athena-tu-darmstadt-exercise";
   version = "0.1.0";

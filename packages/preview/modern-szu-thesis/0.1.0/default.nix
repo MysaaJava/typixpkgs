@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "modern-szu-thesis";
   version = "0.1.0";

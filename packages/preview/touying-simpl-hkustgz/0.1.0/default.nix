@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "touying-simpl-hkustgz";
   version = "0.1.0";

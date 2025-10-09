@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "sweet-graduate-resume";
   version = "0.1.0";

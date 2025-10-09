@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "definitely-not-isec-thesis";
   version = "1.0.0";

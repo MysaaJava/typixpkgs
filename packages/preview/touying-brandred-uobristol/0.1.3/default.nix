@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "touying-brandred-uobristol";
   version = "0.1.3";

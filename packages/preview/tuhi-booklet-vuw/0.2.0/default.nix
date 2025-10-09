@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "tuhi-booklet-vuw";
   version = "0.2.0";

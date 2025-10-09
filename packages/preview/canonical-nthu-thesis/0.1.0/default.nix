@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "canonical-nthu-thesis";
   version = "0.1.0";

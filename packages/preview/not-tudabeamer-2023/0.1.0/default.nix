@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "not-tudabeamer-2023";
   version = "0.1.0";

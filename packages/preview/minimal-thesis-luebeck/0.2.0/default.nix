@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "minimal-thesis-luebeck";
   version = "0.2.0";

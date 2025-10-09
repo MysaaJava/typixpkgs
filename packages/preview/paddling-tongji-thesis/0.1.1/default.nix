@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "paddling-tongji-thesis";
   version = "0.1.1";

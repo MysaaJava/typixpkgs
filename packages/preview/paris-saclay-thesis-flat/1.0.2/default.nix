@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "paris-saclay-thesis-flat";
   version = "1.0.2";

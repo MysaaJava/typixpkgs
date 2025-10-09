@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "guided-resume-starter-cgc";
   version = "2.0.0";

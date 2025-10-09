@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "unofficial-hka-thesis";
   version = "1.0.0";

@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "hhn-unitylab-thesis-template";
   version = "0.0.1";

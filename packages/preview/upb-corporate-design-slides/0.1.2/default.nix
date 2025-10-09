@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "upb-corporate-design-slides";
   version = "0.1.2";

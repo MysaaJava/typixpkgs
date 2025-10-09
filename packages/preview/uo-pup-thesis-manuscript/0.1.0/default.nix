@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "uo-pup-thesis-manuscript";
   version = "0.1.0";

@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "gqe-lemoulon-presentation";
   version = "0.0.5";

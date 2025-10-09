@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "unofficial-sdu-thesis";
   version = "0.1.0";

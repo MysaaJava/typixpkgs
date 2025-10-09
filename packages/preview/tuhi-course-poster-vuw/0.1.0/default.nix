@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "tuhi-course-poster-vuw";
   version = "0.1.0";

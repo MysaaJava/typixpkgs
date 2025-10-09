@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "definitely-not-tuw-thesis";
   version = "0.1.0";

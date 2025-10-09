@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "scholarly-epfl-thesis";
   version = "0.1.0";

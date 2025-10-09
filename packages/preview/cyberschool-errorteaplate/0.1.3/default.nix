@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "cyberschool-errorteaplate";
   version = "0.1.3";

@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "exzellenz-tum-thesis";
   version = "0.1.0";

@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "typographix-polytechnique-reports";
   version = "0.1.4";

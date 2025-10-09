@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "haw-hamburg-master-thesis";
   version = "0.3.0";

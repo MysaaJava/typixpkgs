@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "aio-studi-and-thesis";
   version = "0.1.0";

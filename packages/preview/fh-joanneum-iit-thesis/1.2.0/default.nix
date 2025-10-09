@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "fh-joanneum-iit-thesis";
   version = "1.2.0";

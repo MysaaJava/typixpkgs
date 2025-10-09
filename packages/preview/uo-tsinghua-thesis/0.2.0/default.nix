@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "uo-tsinghua-thesis";
   version = "0.2.0";

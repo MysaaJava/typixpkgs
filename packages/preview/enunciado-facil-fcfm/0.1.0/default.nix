@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "enunciado-facil-fcfm";
   version = "0.1.0";

@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "athena-tu-darmstadt-thesis";
   version = "0.1.0";

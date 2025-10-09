@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "harvard-gsas-thesis-oat";
   version = "0.1.0";

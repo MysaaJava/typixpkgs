@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "fuzzy-cnoi-statement";
   version = "0.1.2";

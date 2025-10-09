@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "unofficial-fhict-document-template";
   version = "0.11.0";

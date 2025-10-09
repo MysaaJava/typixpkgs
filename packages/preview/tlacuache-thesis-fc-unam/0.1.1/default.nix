@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "tlacuache-thesis-fc-unam";
   version = "0.1.1";

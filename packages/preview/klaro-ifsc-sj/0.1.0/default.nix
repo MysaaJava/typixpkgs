@@ -2,7 +2,7 @@
   fetchTypstUniverse,
   lib,
   ...
-}:
+}@args:
 {
   name = "klaro-ifsc-sj";
   version = "0.1.0";
