@@ -1,0 +1,12 @@
+diff --git a/crates/typst-kit/src/package.rs b/crates/typst-kit/src/package.rs
+index 172d8740a..3a01e2ff3 100644
+--- a/crates/typst-kit/src/package.rs
++++ b/crates/typst-kit/src/package.rs
+@@ -172,6 +172,7 @@ impl PackageStorage {
+     ) -> PackageResult<()> {
+         assert_eq!(spec.namespace, DEFAULT_NAMESPACE);
+ 
++        return Err(PackageError::NetworkFailed(Some(eco_format!("[[[TYPSTDL-DEPEDENCY-CHECK|||{}|||{}]]]", spec.name, spec.version))));
+         let url = format!(
+             "{DEFAULT_REGISTRY}/{DEFAULT_NAMESPACE}/{}-{}.tar.gz",
+             spec.name, spec.version
