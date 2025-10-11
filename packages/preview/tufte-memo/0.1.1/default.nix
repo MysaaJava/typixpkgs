@@ -11,6 +11,6 @@
     version = "0.1.1";
     hash = "sha256-6rJJPqNlHF7q4AFDHQ+VCgEu/9wLxqw9AVhmX2Zz6aY=";
   };
-  depedencies = [];
+  depedencies = [((import ../../drafting/0.2.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

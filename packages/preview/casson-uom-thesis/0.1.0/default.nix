@@ -11,6 +11,6 @@
     version = "0.1.0";
     hash = "sha256-+FlwX9zsXVuu35iFhEkmdBVK+mwDPGMN2yttGcP2uqw=";
   };
-  depedencies = [];
+  depedencies = [((import ../../wordometer/0.1.4) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

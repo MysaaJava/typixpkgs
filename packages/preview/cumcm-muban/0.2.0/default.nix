@@ -11,6 +11,6 @@
     version = "0.2.0";
     hash = "sha256-3UAbcokJ/qtksGZ4wKTgsHB/+72oouE1ndeKr376wIo=";
   };
-  depedencies = [];
+  depedencies = [((import ../../ctheorems/1.1.2) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

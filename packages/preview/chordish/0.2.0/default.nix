@@ -11,6 +11,6 @@
     version = "0.2.0";
     hash = "sha256-+KT8d0euvucUMWc+vfuWUMi5XHTdDbpo83UGyP2rerU=";
   };
-  depedencies = [];
+  depedencies = [((import ../../conchord/0.3.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

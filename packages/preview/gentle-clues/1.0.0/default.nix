@@ -11,6 +11,6 @@
     version = "1.0.0";
     hash = "sha256-myY0OYgJiVAVYX5ce30dD3L2wYkyvNcV/ebMRGnS1Jw=";
   };
-  depedencies = [];
+  depedencies = [((import ../../linguify/0.4.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

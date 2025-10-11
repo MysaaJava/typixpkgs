@@ -11,6 +11,6 @@
     version = "0.0.1";
     hash = "sha256-8ymjGlZhBYoEcsy09yrggHFH7FrcDXBJXYVlDlfmrf8=";
   };
-  depedencies = [];
+  depedencies = [((import ../../physica/0.9.3) args) ((import ../../cetz/0.2.2) args) ((import ../../whalogen/0.2.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

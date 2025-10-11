@@ -11,6 +11,6 @@
     version = "0.1.0";
     hash = "sha256-I1rhtafri17/KUejtwJmwzzDzm5SCfLslY0MyQX2b08=";
   };
-  depedencies = [];
+  depedencies = [((import ../../jogs/0.2.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

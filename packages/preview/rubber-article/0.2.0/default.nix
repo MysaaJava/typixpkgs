@@ -11,6 +11,6 @@
     version = "0.2.0";
     hash = "sha256-nShrFu/R5U3jmK58QpqnM10Oxpmk6JvMMGnOMezaAwg=";
   };
-  depedencies = [];
+  depedencies = [((import ../../hydra/0.5.2) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

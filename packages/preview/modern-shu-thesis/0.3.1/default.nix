@@ -11,6 +11,6 @@
     version = "0.3.1";
     hash = "sha256-6nyHkmAmhU2/cMrNZk+0IEUtDU8a23Y5ZEFhEp12AI4=";
   };
-  depedencies = [];
+  depedencies = [((import ../../i-figured/0.2.4) args) ((import ../../numbly/0.1.0) args) ((import ../../cuti/0.3.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

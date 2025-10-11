@@ -11,6 +11,6 @@
     version = "0.0.1";
     hash = "sha256-swsXMYF35UOLaYwai4lLfu7Ln4INYQGC9SBmluPRUrk=";
   };
-  depedencies = [];
+  depedencies = [((import ../../tablex/0.0.4) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

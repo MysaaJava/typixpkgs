@@ -11,6 +11,6 @@
     version = "1.4.0";
     hash = "sha256-v8pwIcxFlZaKsneb4UhCTO/uNs7zDtFJiJ+yWTitrsY=";
   };
-  depedencies = [];
+  depedencies = [((import ../../showybox/2.0.3) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

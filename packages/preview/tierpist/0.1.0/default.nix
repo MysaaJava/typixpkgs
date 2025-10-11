@@ -11,6 +11,6 @@
     version = "0.1.0";
     hash = "sha256-5WqYPmvAxTkC6lZGnpNoCZMXtyUUZzbt8cpUo++4Hus=";
   };
-  depedencies = [];
+  depedencies = [((import ../../typpuccino/0.1.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

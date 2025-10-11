@@ -11,6 +11,6 @@
     version = "2.0.5";
     hash = "sha256-RxpM9eD+At2EzhqmOuDeV0BeLbGNwEjyp7bx04vBEGw=";
   };
-  depedencies = [];
+  depedencies = [((import ../../fontawesome/0.2.1) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

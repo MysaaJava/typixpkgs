@@ -11,6 +11,6 @@
     version = "0.7.0";
     hash = "sha256-OKOheDEb7BYNDW087OFwjJmyr97iso43cuqHnvQ1s/4=";
   };
-  depedencies = [];
+  depedencies = [((import ../../valkyrie/0.2.2) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

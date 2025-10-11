@@ -11,6 +11,6 @@
     version = "0.3.0";
     hash = "sha256-5QxGTy/IgWtKd8wyb9YiYa+X6Nf774LmGjb9u4RofOs=";
   };
-  depedencies = [];
+  depedencies = [((import ../../oxifmt/0.2.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

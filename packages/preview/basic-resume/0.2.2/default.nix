@@ -11,6 +11,6 @@
     version = "0.2.2";
     hash = "sha256-OT4pgLKf4CeXbmHmx0PEwXzbG9kIWZIqA8OqPKzKNWA=";
   };
-  depedencies = [];
+  depedencies = [((import ../../scienceicons/0.0.6) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

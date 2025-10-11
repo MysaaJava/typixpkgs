@@ -11,6 +11,6 @@
     version = "0.1.0";
     hash = "sha256-qnYdimAUN5oDIb1b88XX3jsyF/XFq6Igt0AgoqEckLE=";
   };
-  depedencies = [];
+  depedencies = [((import ../../gentle-clues/1.1.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

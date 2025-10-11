@@ -11,6 +11,6 @@
     version = "0.1.1";
     hash = "sha256-4N9H+XunB9dMQD1r+H0thhfyFyIAg4ubxQhWTmI1wKU=";
   };
-  depedencies = [];
+  depedencies = [((import ../../touying/0.5.3) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

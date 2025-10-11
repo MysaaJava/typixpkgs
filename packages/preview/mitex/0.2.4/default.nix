@@ -11,6 +11,6 @@
     version = "0.2.4";
     hash = "sha256-q7VhCUaxsiS60K/bNp2beGOcJpPMY2iio+E8D+VOWus=";
   };
-  depedencies = [];
+  depedencies = [((import ../../xarrow/0.2.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

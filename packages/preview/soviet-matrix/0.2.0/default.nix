@@ -11,6 +11,6 @@
     version = "0.2.0";
     hash = "sha256-dOKLfcMXvBkCUUMQnlMBe7YnkNFpepXClNQtyN7yBto=";
   };
-  depedencies = [];
+  depedencies = [((import ../../suiji/0.3.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

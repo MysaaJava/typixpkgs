@@ -11,6 +11,6 @@
     version = "0.1.1";
     hash = "sha256-7KLpPMC1h6QEcjQym5Khlj3+9ZWFwVa+bmsJA4HXhW4=";
   };
-  depedencies = [];
+  depedencies = [((import ../../cetz/0.2.2) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

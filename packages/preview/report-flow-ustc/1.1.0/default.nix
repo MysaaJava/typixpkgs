@@ -11,6 +11,6 @@
     version = "1.1.0";
     hash = "sha256-jsbqmxRtsIW3rIsSv3dRzxjiNXuaoFUQUddCqIe18Ws=";
   };
-  depedencies = [];
+  depedencies = [((import ../../codly/1.0.0) args) ((import ../../i-figured/0.2.4) args) ((import ../../pintorita/0.1.1) args) ((import ../../gentle-clues/0.8.0) args) ((import ../../cheq/0.1.0) args) ((import ../../unify/0.6.0) args) ((import ../../mitex/0.2.4) args) ((import ../../showybox/2.0.1) args) ((import ../../cuti/0.2.1) args) ((import ../../commute/0.2.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

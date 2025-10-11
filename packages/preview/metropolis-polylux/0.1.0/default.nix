@@ -11,6 +11,6 @@
     version = "0.1.0";
     hash = "sha256-3ljITD4tYTrO777C/cyI/1KYdgcBQ+F0Ki1X4ze8zG8=";
   };
-  depedencies = [];
+  depedencies = [((import ../../polylux/0.4.0) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

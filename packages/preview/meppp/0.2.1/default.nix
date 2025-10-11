@@ -11,6 +11,6 @@
     version = "0.2.1";
     hash = "sha256-EYYPjDb/G0WVLYDWOIy5qiRBNaMpCGnBhtUhMUTcEnQ=";
   };
-  depedencies = [];
+  depedencies = [((import ../../cuti/0.2.1) args) ];
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }
