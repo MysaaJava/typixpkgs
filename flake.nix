@@ -101,7 +101,12 @@
         )) pkgv) self.pkgs;
 
       packages."${system}" = {
-        typst = (import ./typst) ({inherit system;} // fetcherArgs);
+        typst = builtins.listToAttrs (
+          (map (
+            p: { name = lib.removeSuffix ".nix" (builtins.baseNameOf p); value = (import p) ({inherit system;} // fetcherArgs); }
+          )
+          (lib.fileset.toList ./typst))
+        );
 
         checkDeps = pkgs.writeShellApplication {
           name = "checkDeps";
