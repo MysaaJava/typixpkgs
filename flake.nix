@@ -47,10 +47,6 @@
         text = ''${lib.getExe python} ./typst-universe-parser.py "$@"'';
       };
 
-      typstdl = pkgs.typst.overrideAttrs (old: {
-        patches = old.patches ++ [ ./typstdl.diff ];
-      });
-
       # Turns a list of typst packages (list of attrsets) into a
       # attr set set.pkgname.pkgversion = pkg
       unfoldTypstPkgList = pkgs: (lib.attrsets.zipAttrsWith (
@@ -82,52 +78,64 @@
           '') tpkgs
         )
       ));
+      typstVersions = map (p: lib.removeSuffix ".nix" (builtins.baseNameOf p)) (lib.fileset.toList ./typst);
 
+      typstdlOverlay = final: prev: {
+        typst = prev.typst.overrideAttrs (old: {
+          patches = old.patches ++ [ ./typstdl.diff ];
+        });
+      };
     in
     {
       pkgs = (import ./packages/preview) fetcherArgs;
-
-      typstcheck = builtins.mapAttrs (name: pkgv: builtins.mapAttrs (ver: pkg: (
-          let depsPackage = makePackages (allStrictDeps pkg); in
-          pkgs.runCommand "typstcheck-${pkg.name}-${pkg.version}" {
-            TYPST_PACKAGE_CACHE_PATH = "${depsPackage}";
-          } ''
-            cp -r ${pkg.src} ./package/
-            chmod 700 -R ./package/
-            ${typstdl}/bin/typst compile --root "./package/" "./package/${pkg.infos.entrypoint}"
-            touch $out # If it worked
-          ''
-        )) pkgv) self.pkgs;
 
       deps = builtins.mapAttrs (name: pkgv: builtins.mapAttrs (ver: pkg: (
           makePackages (warnVersions "0.13.1" (alldeps [ pkg ]))
         )) pkgv) self.pkgs;
 
+      strictDeps = builtins.mapAttrs (name: pkgv: builtins.mapAttrs (ver: pkg: (
+          makePackages (warnVersions "0.13.1" (allStrictDeps pkg))
+        )) pkgv) self.pkgs;
+
       packages."${system}" = {
-        typst = builtins.listToAttrs (
-          (map (
-            p: { name = lib.removeSuffix ".nix" (builtins.baseNameOf p); value = (import p) ({inherit system;} // fetcherArgs); }
-          )
-          (lib.fileset.toList ./typst))
+        typst = lib.genAttrs typstVersions (tver: (import ./typst/${tver}.nix) ({inherit system;} // fetcherArgs));
+
+        typstdl = lib.genAttrs typstVersions (tver: (import ./typst/${tver}.nix) ({inherit system; overlays = [ typstdlOverlay ];} // fetcherArgs));
+
+        typstcheck = lib.genAttrs typstVersions (tver:
+          builtins.mapAttrs (pname: pkgv: builtins.mapAttrs (pver: pkg: (
+            let
+              depsPackage = self.strictDeps."${pname}"."${pver}";
+              typstdl = self.packages."${system}".typstdl."${tver}";
+            in
+            pkgs.runCommand "typstcheck-${tver}-${pname}-${pver}" {
+              TYPST_PACKAGE_CACHE_PATH = "${depsPackage}";
+            } ''
+              cp -r ${pkg.src} ./package/
+              chmod 700 -R ./package/
+              ${typstdl}/bin/typst compile --root "./package/" "./package/${pkg.infos.entrypoint}"
+              touch $out # If it worked
+            ''
+          )) pkgv) self.pkgs
         );
 
         checkDeps = pkgs.writeShellApplication {
           name = "checkDeps";
-          runtimeInputs = with pkgs; [
-            typstdl
-          ];
           text = ''${lib.getExe python} ./checkDeps.py "$@"'';
         };
       };
 
-      apps."${system}".checkDeps = {
-        type = "app";
-        program = lib.getExe self.packages.x86_64-linux.checkDeps;
-      };
+      apps."${system}" = {
 
-      apps."${system}".default = {
-        type = "app";
-        program = lib.getExe tuparser;
+        checkDeps = {
+          type = "app";
+          program = lib.getExe self.packages.x86_64-linux.checkDeps;
+        };
+
+        default = {
+          type = "app";
+          program = lib.getExe tuparser;
+        };
       };
     };
 }
