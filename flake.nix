@@ -1,5 +1,5 @@
 {
-  description = "Worst-of maker";
+  description = "Package for Typst, flake based";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -8,7 +8,8 @@
   outputs =
     { self, nixpkgs }:
     let
-      pkgs = import nixpkgs { system = "x86_64-linux"; };
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
       lib = pkgs.lib;
 
       python = pkgs.python3.withPackages (ppkgs: with ppkgs; [
@@ -21,7 +22,7 @@
       fetchTypstUniverseTarball = args:
         (import ./fetchTypstPackage.nix) (
           args
-          // {fetchurl = pkgs.fetchurl;}
+          // {inherit (pkgs) fetchurl;}
         );
       fetchTypstUniverse = {
         namespace ? "preview",
@@ -36,8 +37,9 @@
           tar -xzf "${tarball}" -C "$out"
         '';
 
-      pkgsArgs = {
+      fetcherArgs = {
         inherit lib fetchTypstUniverse;
+        inherit (pkgs) fetchFromGitHub;
       };
 
       tuparser = pkgs.writeShellApplication {
@@ -80,7 +82,7 @@
 
     in
     {
-      pkgs = (import packages/preview) pkgsArgs;
+      pkgs = (import ./packages/preview) fetcherArgs;
 
       typstcheck = builtins.mapAttrs (name: pkgv: builtins.mapAttrs (ver: pkg: (
           let depsPackage = makePackages (allStrictDeps pkg); in
@@ -98,20 +100,24 @@
           makePackages (alldeps [ pkg ])
         )) pkgv) self.pkgs;
 
-      packages.x86_64-linux.checkDeps = pkgs.writeShellApplication {
-        name = "checkDeps";
-        runtimeInputs = with pkgs; [
-          typstdl
-        ];
-        text = ''${lib.getExe python} ./checkDeps.py "$@"'';
+      packages."${system}" = {
+        typst = (import ./typst) ({inherit system;} // fetcherArgs);
+
+        checkDeps = pkgs.writeShellApplication {
+          name = "checkDeps";
+          runtimeInputs = with pkgs; [
+            typstdl
+          ];
+          text = ''${lib.getExe python} ./checkDeps.py "$@"'';
+        };
       };
 
-      apps.x86_64-linux.checkDeps = {
+      apps."${system}".checkDeps = {
         type = "app";
         program = lib.getExe self.packages.x86_64-linux.checkDeps;
       };
 
-      apps.x86_64-linux.default = {
+      apps."${system}".default = {
         type = "app";
         program = lib.getExe tuparser;
       };
