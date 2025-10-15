@@ -69,6 +69,9 @@
           lib.lists.unique (pkgs ++ (lib.lists.flatten (map (p: p.depedencies) pkgs)))
         ) pkgs.depedencies;
 
+      warnVersions = tver: tpkgs:
+        lib.lists.forEach tpkgs (tpkg: if (tpkg.validTypstVersion tver) then tpkg else (builtins.warn "warning: package ${tpkg.name} in version ${tpkg.version} is not supposed to be run with typst version ${tver}" tpkg));
+
       makePackages = tpkgs: pkgs.runCommand "typst-packages" {} (''
         mkdir -p "$out/preview/"
       '' + (
@@ -97,7 +100,7 @@
         )) pkgv) self.pkgs;
 
       deps = builtins.mapAttrs (name: pkgv: builtins.mapAttrs (ver: pkg: (
-          makePackages (alldeps [ pkg ])
+          makePackages (warnVersions "0.13.1" (alldeps [ pkg ]))
         )) pkgv) self.pkgs;
 
       packages."${system}" = {

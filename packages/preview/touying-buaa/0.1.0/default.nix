@@ -12,5 +12,6 @@
     hash = "sha256-V/nV6UO0R3C3XIi94cveOKace+8tUky1q4WpUSaLtGE=";
   };
   depedencies = [((import ../../touying/0.4.2) args) ];
+  validTypstVersion = v: lib.strings.compareVersions "0.13.1" v < 1;
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

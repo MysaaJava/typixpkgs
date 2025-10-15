@@ -12,5 +12,6 @@
     hash = "sha256-Xlo8c5f16Y6rvoC0GKVJ4DN8EkwbNJevRBhVaQ7FCwo=";
   };
   depedencies = [((import ../../polylux/0.4.0) args) ((import ../../tiaoma/0.2.1) args) ];
+  validTypstVersion = v: lib.strings.compareVersions "0.13.1" v < 1;
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

@@ -12,5 +12,6 @@
     hash = "sha256-vyJka85JnogHEn3/zXGJZTBaFy/P6CILqiXghmhIuCM=";
   };
   depedencies = [((import ../../theoretic/0.1.1) args) ((import ../../showybox/2.0.3) args) ];
+  validTypstVersion = v: lib.strings.compareVersions "0.13.1" v < 1;
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

@@ -12,5 +12,6 @@
     hash = "sha256-Z333h4I1QBRMJAEJSv8zw8xvhO0sQkmcSgQnepIUTiw=";
   };
   depedencies = [((import ../../fletcher/0.4.5) args) ];
+  validTypstVersion = v: lib.strings.compareVersions "0.13.1" v < 1;
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

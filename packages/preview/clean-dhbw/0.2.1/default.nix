@@ -12,5 +12,6 @@
     hash = "sha256-JKEtbnLU4L+6+YeqqMFqBJ7fKhdIEIiJWsU9YeJyvHg=";
   };
   depedencies = [((import ../../codelst/2.0.2) args) ((import ../../hydra/0.6.0) args) ];
+  validTypstVersion = v: lib.strings.compareVersions "0.13.1" v < 1;
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

@@ -12,5 +12,6 @@
     hash = "sha256-KWNy8VFovX5V50qgv8MVHiuD0Da8N2MZpjxyquOghBo=";
   };
   depedencies = [((import ../../physica/0.9.3) args) ((import ../../metro/0.3.0) args) ];
+  validTypstVersion = v: lib.strings.compareVersions "0.13.1" v < 1;
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

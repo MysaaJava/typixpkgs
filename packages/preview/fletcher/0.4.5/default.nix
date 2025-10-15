@@ -12,5 +12,6 @@
     hash = "sha256-TzFBppN5WRnT/gT3v8vMGktaof/oQMiFu1hY4gNLLm8=";
   };
   depedencies = [((import ../../cetz/0.2.2) args) ];
+  validTypstVersion = v: lib.strings.compareVersions "0.13.1" v < 1;
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }

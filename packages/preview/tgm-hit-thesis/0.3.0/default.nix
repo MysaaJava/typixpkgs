@@ -12,5 +12,6 @@
     hash = "sha256-Elqm4V6T6/SJGR91WAFxCq2VHxKq6zcneQKVGtvRFec=";
   };
   depedencies = [((import ../../linguify/0.4.2) args) ((import ../../glossarium/0.5.2) args) ((import ../../alexandria/0.1.3) args) ];
+  validTypstVersion = v: lib.strings.compareVersions "0.13.1" v < 1;
   infos = (lib.trivial.importTOML ./typst.toml).package;
 }
